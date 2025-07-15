@@ -24,7 +24,7 @@ const AdminPanel = () => {
     e.preventDefault();
     
     try {
-      await axios.post("http://localhost:4000/api/updates", form, {
+      await axios.post("https://loadshedding.onrender.com/api/updates", form, {
          headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`
   }
@@ -39,7 +39,7 @@ const AdminPanel = () => {
   };
 
   const fetchUpdates = async () => {
-    const res = await axios.get("http://localhost:4000/api/updates");
+    const res = await axios.get("https://loadshedding.onrender.com/api/updates");
     setUpdates(res.data);
   };
   
