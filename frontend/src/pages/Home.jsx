@@ -21,7 +21,7 @@ const Home = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        "http://localhost:4000",
+        "https://loadshedding.onrender.com/",
         {},
         { withCredentials: true }
       );
@@ -44,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     const fetchUpdates = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/updates");
+        const res = await axios.get("https://loadshedding.onrender.com/api/updates");
         setUpdates(res.data);
       } catch (err) {
         toast.error("Failed to load updates");
