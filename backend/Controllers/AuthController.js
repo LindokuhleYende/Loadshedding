@@ -13,8 +13,7 @@ module.exports.Signup = async (req, res, next) => {
     if (existingUser) return res.json({ message: "User already exists" });
     const user = await User.create({ email, password, username });
     const token = createSecretToken(user._id); //calls create function from util/SecretToken.js to create a JWT token.
-    res.cookie("token", token, { withCredentials: true, httpOnly: false }); //Sends the JWT to the browser as a cookie.
-    res.status(201).json({ message: "User signed in successfully", success: true, user }); //Returns success and the user info.
+    res.status(201).json({ message: "User signed in successfully", success: true, token, user }); //Returns success, token, and the user info.
 
     next();
   } catch (error) {
@@ -34,7 +33,6 @@ module.exports.Login = async (req, res, next) => {
 
     const token = createSecretToken(user._id, user.isAdmin);
 
-    res.cookie("token", token, { withCredentials: true, httpOnly: false }); //Sends the JWT to the browser as a cookie.
     res.status(201).json({
       message: "User logged in successfully", success: true,
       token, // ✅ Send the token back in the response body
