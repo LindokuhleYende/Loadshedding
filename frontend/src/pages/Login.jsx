@@ -44,6 +44,9 @@ const Login = () => {
       // ✅ Store the token for authorization header use
       localStorage.setItem("adminToken", token);
       localStorage.setItem("isAdmin", user.isAdmin);
+      if (user.username) {
+        localStorage.setItem("username", user.username);
+      }
       handleSuccess(message);
       setInputValue({ email: "", password: "" });
       const target = user.isAdmin ? "/admin" : "/";

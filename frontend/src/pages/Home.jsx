@@ -1,12 +1,11 @@
+
 import { useEffect, useState } from "react";
-import { useNavigate ,Link } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
   const [area, setArea] = useState(""); // search input
   const [updates, setUpdates] = useState([]);
@@ -14,29 +13,24 @@ const Home = () => {
   const isAdmin = localStorage.getItem("isAdmin") === "true";
 
 
-  // Check login via cookie
+  // Check login via localStorage
   useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token) {
-        navigate("/login");
-      }
-      const { data } = await axios.post(
-        "https://loadshedding.onrender.com/",
-        {},
-        { withCredentials: true }
-      );
-      const { status, user } = data;
-      setUsername(user);
-      return status
-        ? toast(`Hello ${user}`, { position: "top-right" })
-        : (removeCookie("token"), navigate("/login"));
-    };
-    verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+    const token = localStorage.getItem("adminToken");
+    // Only redirect if not already on /login or /signup
+    const currentPath = window.location.pathname;
+    if (!token && currentPath !== "/login" && currentPath !== "/signup") {
+      navigate("/login");
+      return;
+    }
+    // Set username from localStorage if available
+    const storedUser = localStorage.getItem("username");
+    setUsername(storedUser || "User");
+  }, [navigate]);
 
   // Logout
   const Logout = () => {
-    removeCookie("token");
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("isAdmin");
     navigate("/signup");
   };
 

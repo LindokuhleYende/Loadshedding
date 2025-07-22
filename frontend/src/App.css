@@ -1,3 +1,125 @@
+/* Home Page Modern Styling */
+.home_page {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home_page h4 {
+  font-size: 2.1rem;
+  color: #2d1582;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+.home_page span {
+  color: #0e9aa7;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.home_page button {
+  background: linear-gradient(90deg, #1abc9c 0%, #4f2cc6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.home_page button:hover {
+  background: linear-gradient(90deg, #4f2cc6 0%, #1abc9c 100%);
+}
+.home_page h5 {
+  margin: 0.5rem 0 1.5rem 0;
+  font-size: 1.15rem;
+  color: #2d1582;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.home_page a {
+  color: #0e9aa7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+  font-size: 1.05em;
+}
+.home_page a:hover {
+  color: #2d1582;
+}
+.home_page form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.home_page input[type="search"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  width: 220px;
+  transition: border 0.2s;
+}
+.home_page input[type="search"]:focus {
+  border: 1.5px solid #1abc9c;
+}
+.home_page .results {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1.2rem 0.5rem 0.5rem 0.5rem;
+  background: #f4f8fb;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.08);
+  border: 1.5px solid #e3e8ee;
+}
+.home_page ul {
+  list-style: none;
+  padding: 0;
+}
+.home_page li {
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  padding: 1.2rem 1.5rem 1.1rem 1.5rem;
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.07);
+  font-size: 1.13rem;
+  color: #23272f;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  border: 1px solid #e3e8ee;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.home_page strong {
+  color: #2d1582;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 1.13em;
+  margin-bottom: 0.1em;
+}
+.home_page li span, .home_page li br, .home_page li {
+  color: #23272f;
+}
+.home_page .results h5 {
+  color: #0e9aa7;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.home_page p {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1.01em;
+}
 .App {
   text-align: center;
 }
