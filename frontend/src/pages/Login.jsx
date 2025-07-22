@@ -41,25 +41,28 @@ const Login = () => {
     console.log(data);
     const { success, message, user, token } = data;
     if (success) {
-      handleSuccess(message);
       // ✅ Store the token for authorization header use
       localStorage.setItem("adminToken", token);
       localStorage.setItem("isAdmin", user.isAdmin);
+      handleSuccess(message);
+      setInputValue({ email: "", password: "" });
+      const target = user.isAdmin ? "/admin" : "/";
+      console.log("Navigating to:", target);
       if (user.isAdmin) {
         navigate("/admin");
+        console.log("Navigated to /admin");
       } else {
-       navigate("/", { replace: true });
+        navigate("/", { replace: true });
+        console.log("Navigated to /");
       }
     } else {
       handleError(message);
+      setInputValue({ email: "", password: "" });
     }
   } catch (error) {
     console.log(error);
   }
-  setInputValue({
-    email: "",
-    password: "",
-  });
+  // setInputValue now handled after navigation or error
 };
 
 
@@ -93,7 +96,7 @@ const Login = () => {
           Already have an account? <Link to={"/signup"}>Signup</Link>
         </span>
       </form>
-      <ToastContainer />
+      <ToastContainer newestOnTop autoClose={2000} />
     </div>
   );
 };
