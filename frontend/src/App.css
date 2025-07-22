@@ -1,11 +1,11 @@
 /* Home Page Modern Styling */
 .home_page {
   max-width: 600px;
-  margin: 40px auto;
+  margin:  auto;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  padding: 2.5rem 2rem 2rem 2rem;
+  padding: 2.5rem 3rem 3rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,7 +118,7 @@
 .home_page p {
   color: #6c757d;
   font-style: italic;
-  font-size: 1.01em;
+  font-size: medium;
 }
 .App {
   text-align: center;

@@ -82,7 +82,7 @@ const Home = () => {
           </form>
 
           <div>
-            <h5>Results for: {area}</h5>
+            <p>Results for: {area}</p>
 
             {filtered.length === 0 ? (
               <p>No updates found for this area.</p>
